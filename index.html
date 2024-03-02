@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MY WEATHER APP</title>
+    <!-- <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous"
+    /> -->
+    <link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css" />
+    <style>
+        .nav-item a {
+            letter-spacing: 2px; /* Adding letter spacing ko isme kiya add*/
+            transition: all 0.3s ease; /* Adding transition for hover effect */
+        }
+
+        .nav-item a:hover {
+            letter-spacing: 4px; /* Changing letter spacing on hover */
+            color: #ffc107; /* Changing text color on hover */
+        }
+    </style>
+</head>
+<body>
+<!-- <header>
+    <h1>WEATHER DASHBOARD</h1>
+</header> -->
+<header class="text-center py-1 text-light">
+    <h1>WEATHER  <small class="text-body-secondary">DASHBOARD</small></h1>
+</header>
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About This Dashboard</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Delhi</a></li>
+                        <li><a class="dropdown-item" href="#">Seattle</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#">Others</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input id="city"
+                       class="form-control me-2"
+                       type="search"
+                       placeholder="Search"
+                       aria-label="Search"
+                />
+                <button class="btn btn-outline-success" type="submit" id="submit">
+                    Search
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!-- <header class="text-center py-2 text-light">
+    <h2>WEATHER  <small class="text-body-secondary">DASHBOARD</small></h2>
+</header> -->
+<div class="container">
+    <h2 class="my-4 text-center">Weather for <span id="cityName"></span></h2>
+    <main>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <!-- Temperature -->
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-primary custom-card">
+                    <div class="card-header py-3 text-bg-primary border-primary">
+                        <h4 class="my-0 fw-normal">Temperatures</h4>
+                    </div>
+                    <div class="card-body interactive-card custom-body">
+                        <h1 class="card-title pricing-card-title">
+                            <span id="temp1"></span><small class="text-body-secondary fw-light"><span>&#8451;</span></small>
+                        </h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Temperature is <span id="temp"></span></li>
+                            <li>Min Temperature is <span id="min_temp"></span></li>
+                            <li>Max Temperature is <span id="max_temp"></span></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Humidity -->
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-success custom-card">
+                    <div class="card-header py-3 text-bg-success border-success">
+                        <h4 class="my-0 fw-normal">Humidity</h4>
+                    </div>
+                    <div class="card-body interactive-card custom-body">
+                        <h1 class="card-title pricing-card-title">
+                            <span id="humidity1"><small class="text-body-secondary fw-light"></span> %</small>
+                        </h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Humidity is <span id="humidity"></span></li>
+                            <li>Wind Speed is <span id="wind_speed"></span></li>
+                            <li>Wind Degree is <span id="wind_degrees"></span></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <!-- sun_info -->
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-warning custom-card">
+                    <div class="card-header py-3 text-bg-warning border-warning">
+                        <h4 class="my-0 fw-normal">Sun Info</h4>
+                    </div>
+                    <div class="card-body interactive-card custom-body">
+                        <h1 class="card-title pricing-card-title">
+                            <span id="feels_likes"></span><small class="text-body-secondary fw-light"><span>&#8451;</span></small>
+                        </h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Sunrise Time is <span id="sunrise"></span></li>
+                            <li>Sunset Time is <span id="sunset"></span></li>
+                            <li>Feels Like <span id="feels_like"></span></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<!-- added footer -->
+<footer class="bg-dark text-light py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About This Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h5>Follow Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="https://shorturl.at/hlrxT">Github</a></li>
+                    <li><a href="https://shorturl.at/bhkK3">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p>&copy; 2024 Your Website | Email: example@example.com</p>
+                <p>Subscribe to our newsletter for updates.</p>
+                <!-- Subscribe form can be added here -->
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+></script>
+<script src="script.js"></script>
+</body>
+</html>

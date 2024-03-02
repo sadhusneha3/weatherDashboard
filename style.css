@@ -1,0 +1,36 @@
+/*.custom-card {
+    margin-bottom: 20px;
+}
+
+.custom-body {
+    padding: 20px;
+}
+
+.custom-card .card-header,
+.custom-card .card-body {
+    border-radius: 15px;
+}
+
+.text-bg-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.text-bg-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.text-bg-warning {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.interactive-card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.interactive-card:hover {
+    transform: scale(1.05);
+} */
